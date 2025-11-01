@@ -24,3 +24,45 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* .parent-menu ul {
+  @apply
+  hidden
+}
+
+.parent-menu:hover > ul {
+  @apply
+  block
+} */
+
+.nav-menu {}
+.nav-menu ul li {
+  @apply
+  relative
+}
+.nav-menu ul li ul.sub-menu {
+  @apply
+  hidden
+  absolute
+}
+.nav-menu ul li:hover > ul.sub-menu {
+  @apply
+  block
+}
+.nav-menu ul li a {}
+.nav-menu ul li ul.sub-menu li {}
+.nav-menu ul li ul.sub-menu li a{}
+
+
+.col-lg-6{
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+.outline-text{
+  -webkit-text-stroke: 1px #ffffff; 
+  color: transparent;
+  font-weight: 700;
+}
+
+
