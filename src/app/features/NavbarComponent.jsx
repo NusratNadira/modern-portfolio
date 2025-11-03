@@ -1,15 +1,15 @@
 "use client";
 import React, { useState } from 'react';
 
-import { FaArrowRight, FaFacebookF, FaHome, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import { FaArrowRight, FaFacebookF, FaHome, FaInstagram, FaLinkedinIn, FaTwitter, FaPencilRuler, FaBezierCurve, FaSlack } from "react-icons/fa";
 import { RxCaretDown, RxCaretRight } from "react-icons/rx";
-import { FaBarsStaggered } from "react-icons/fa6";
-import { TiHeart } from "react-icons/ti";
+import { FaBarsStaggered, FaGgCircle, FaRegEnvelope, FaRegLightbulb, FaUpwork,FaMedium } from "react-icons/fa6";
+import { SiAmazon, SiAmazonmusic, SiAsana, SiFramer, SiNotion } from "react-icons/si";
 
 const NavbarComponent = () => {
     return (
         <>
-
+{/* Header */}
             <div className='bg-[url(https://inversweb.com/product/html/reeni/assets/images/banner/banner-background-one.jpg)]  bg-cover no-bg-no-repeat  h-auto bg-center justify-center items-center    '>
                 <header className='shadow-md  bg-white/0 backdrop-blur-none  '>
                     <div className='m-auto max-w-[1250px] px-4  '>
@@ -85,14 +85,14 @@ const NavbarComponent = () => {
                     </div>
 
                     <div className='col-lg-6 order-2'>
- <div className="">
-                          <div className='relative z-1 flex flex-col flex-wrap justify-end max-w-[600px] h-auto '>
-                            <div className='object-cover'>
-                                 <img className='pl-15' src="https://inversweb.com/product/html/reeni/assets/images/banner/banner-user-image-one.png" alt="" />
+                        <div className="">
+                            <div className='relative z-1 flex flex-col flex-wrap justify-end max-w-[600px] h-auto '>
+                                <div className='object-cover'>
+                                    <img className='pl-15' src="https://inversweb.com/product/html/reeni/assets/images/banner/banner-user-image-one.png" alt="" />
+                                </div>
+                                <h1 className=' text-white text-4xl absolute mb-0 top-[25%] -z-1 flex items-center justify-center w-full animate-bounce  delay-150 font-bold '>Web Designer</h1>
+                                <h1 className='font-bold bottom-4 absolute left-0 text-4xl  justify-center items-center w-full flex flex-wrap animate-bounce outline-text '>Web Designer</h1>
                             </div>
-                           <h1 className=' text-white text-4xl absolute mb-0 top-[25%] -z-1 flex items-center justify-center w-full animate-bounce  delay-150 font-bold '>Web Designer</h1>
-                           <h1  className='font-bold bottom-4 absolute left-0 text-4xl  justify-center items-center w-full flex flex-wrap animate-bounce outline-text '>Web Designer</h1>
-                          </div>
                         </div>
                     </div>
                 </div>
@@ -100,110 +100,356 @@ const NavbarComponent = () => {
 
             </div>
 
+{/* Home */}
+            <div className='bg-black h-screen'>
+                <div className='m-auto max-w-[1250px]  p-5 '>
 
+                    <div className='flex  justify-between items-center gap-2 mt-15'>
+
+                        <div className='border-[.5px] border-red-900 rounded-xl w-[250px] h-[200px] flex flex-col justify-center items-center bg-black'>
+                            <FaPencilRuler className='font-lg text-5xl  text-red-700 mb-4' />
+                            <h1 className='font-bold text-white mb-2 text-xl'>Web Design</h1>
+                            <h3 className='text-gray-500 text-lg'>120 Projects</h3>
+                        </div>
+
+                        <div className='border-[.5px] border-red-900 rounded-xl w-[250px] h-[200px] flex flex-col justify-center items-center bg-black'>
+                            <FaBezierCurve className='font-bold text-5xl  text-red-700 mb-4' />
+                            <h1 className='font-bold text-white mb-2 text-xl'>Ui/Ux Design</h1>
+                            <h3 className='text-gray-500 text-lg'>241 Projects</h3>
+                        </div>
+
+                        <div className='border-[.5px] border-red-900 rounded-xl w-[250px] h-[200px] flex flex-col justify-center items-center bg-black '>
+                            <FaRegLightbulb className='font-bold text-5xl  text-red-700 mb-4' />
+                            <h1 className='font-bold text-white mb-2 text-xl'>Web Research</h1>
+                            <h3 className='text-gray-500 text-lg'>240 Projects</h3>
+                        </div>
+
+                        <div className='border-[.5px] border-red-900 rounded-xl w-[250px] h-[200px] flex flex-col justify-center items-center bg-black'>
+                            <FaRegEnvelope className='font-bold text-5xl  text-red-700 mb-4' />
+                            <h1 className='font-bold text-white mb-2 text-xl'>Marketing</h1>
+                            <h3 className='text-gray-500 text-lg'>331 Projects</h3>
+                        </div>
+
+                    </div>
+
+
+                    <div className='flex  items-center justify-around gap-2  mt-5'>
+                        <div className='order-1 w-[580px] h-auto rounded-xl bg-linear-65 from-red-950 to-red-800 flex flex-col p-15'>
+                            <div className='flex  justify-between'>
+                                <span className='text-4xl text-red-600 font-bold'> 25</span>
+                                <p className='text-2xl font-bold'>Years of <br /> Experience</p>
+                            </div>
+
+                            <div className='text-white text-sm pt-4'>Business consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency</div>
+                        </div>
+                        <div className='w-[50%] order-2  flex  flex-wrap items-center justify-evenly gap-4'>
+                            <div className='bg-gray-900 rounded-xl w-auto h-auto items-center flex flex-col p-8'>
+                                <span className='text-white font-bold text-4xl'>0k+</span>
+                                <p className='text-gray-500 text-lg'>Our Project Complete</p>
+                            </div>
+                            <div className='bg-gray-900 rounded-xl w-auto h-auto items-center flex flex-col p-8'>
+                                <span className='text-white font-bold text-4xl'>0k+</span>
+                                <p className='text-gray-500 text-lg'>Our Project Complete</p>
+                            </div>
+                            <div className='bg-gray-900 rounded-xl w-auto h-auto items-center flex flex-col p-8'>
+                                <span className='text-white font-bold text-4xl'>0k+</span>
+                                <p className='text-gray-500 text-lg'>Our Project Complete</p>
+                            </div>
+                            <div className='bg-gray-900 rounded-xl w-auto h-auto items-center flex flex-col p-8'>
+                                <span className='text-white font-bold text-4xl'>0k+</span>
+                                <p className='text-gray-500 text-lg'>Our Project Complete</p>
+                            </div>
+                        </div>
+                    </div>
+
+{/* parcentage section */}
+                   
+
+  <div className="grid grid-cols-12 gap-8 items-start mt-15 mb-15">
+
+    <div className="col-span-12 md:col-span-6">
+      <div className="flex items-center mb-6">
+        <h2 className="text-3xl font-extrabold mr-4 text-white">Design Skill</h2>
+        <div>
+            <img src="https://inversweb.com/product/html/reeni/assets/images/custom-line/custom-line.png" alt="" />
+        </div>
+      </div>
+
+      <div className="space-y-6">
+        <div>
+          <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
+            <span>PHOTOSHOT</span>
+            <span>100%</span>
+          </div>
+          <div className="w-full rounded-full h-2 bg-gray-900">
+            <div className="rounded-full h-2 bg-red-600 w-full" ></div>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
+            <span>FIGMA</span>
+            <span>95%</span>
+          </div>
+          <div className="w-full rounded-full h-2 bg-gray-900">
+            <div className="rounded-full h-2 bg-red-600  w-[95%]" ></div>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
+            <span>ADOBE XD</span>
+            <span>60%</span>
+          </div>
+          <div className="w-full rounded-full h-2 bg-gray-900">
+            <div className="rounded-full h-2 bg-red-600 w-[60%]" ></div>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
+            <span>ADOBE ILLUSTRATOR</span>
+            <span>70%</span>
+          </div>
+          <div className="w-full rounded-full h-2 bg-gray-900">
+            <div className="rounded-full h-2 bg-red-600 w-[70%]" ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div className="col-span-12 md:col-span-6">
+      <div className="flex items-center mb-6">
+        <h2 className="text-3xl font-extrabold mr-4 text-white">Development Skill</h2>
+       <div>
+            <img src="https://inversweb.com/product/html/reeni/assets/images/custom-line/custom-line.png" alt="" />
+        </div>
+      </div>
+
+      <div className="space-y-6">
+        <div>
+          <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
+            <span>HTML</span>
+            <span>100%</span>
+          </div>
+          <div className="w-full rounded-full h-2 bg-gray-900">
+            <div className="rounded-full h-2 bg-red-600 w-full" ></div>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
+            <span>CSS</span>
+            <span>95%</span>
+          </div>
+          <div className="w-full rounded-full h-2 bg-gray-900">
+            <div className="rounded-full h-2 bg-red-600 w-[95%]" ></div>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
+            <span>Javascript</span>
+            <span>60%</span>
+          </div>
+          <div className="w-full rounded-full h-2 bg-gray-900">
+            <div className="rounded-full h-2 bg-red-600 w-[60%]" ></div>
+          </div>
+        </div>
+
+        <div>
+          <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
+            <span>Wordpress</span>
+            <span>70%</span>
+          </div>
+          <div className="w-full rounded-full h-2 bg-gray-900">
+            <div className="rounded-full h-2 bg-red-600 w-[70%]" ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+
+       </div >
+      </div >
+
+
+{/* latest Service */}
+
+<div className='bg-black h-screen '>
+                <div className='m-auto max-w-[1250px]  p-5 '>
+
+<div className="max-w-6xl mx-auto px-6 py-24 text-white">
+  <div className="text-center mb-12">
+    <div className="text-red-900 tracking-widest text-sm">LATEST SERVICE</div>
+    <h2 className="mt-4 text-4xl  font-extrabold">Inspiring The World One Project</h2>
+    <p className="mt-4 text-sm text-gray-400 max-w-2xl mx-auto">Business consulting consultants provide expert advice and guidance to help them improve their performance, efficiency, and organizational.</p>
+  </div>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    <div>
+      <div className="space-y-8">
+        <div className="rounded-xl bg-gray-900/60 p-6 shadow-lg">
+          <div className="flex items-start gap-6">
+            <div className="text-white font-extrabold text-lg">01.</div>
+            <div>
+              <h3 className="text-xl font-semibold">A Portfolio of Creativity</h3>
+              <p className="mt-3 text-sm text-gray-400 max-w-xl">Business consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency</p>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-xl bg-gray-900/60 p-6 shadow-lg">
+          <div className="flex items-start gap-6">
+            <div className="text-white font-extrabold text-lg">02.</div>
+            <div>
+              <h3 className="text-xl font-semibold">My Portfolio of Innovation</h3>
+              <p className="mt-3 text-sm text-gray-400 max-w-xl">My work is driven by the belief that thoughtful design and strategic planning can empower brands, transform businesses</p>
+            </div>
+          </div>
+        </div>
+        <div className="rounded-xl bg-gray-900/60 p-6 shadow-lg">
+          <div className="flex items-start gap-6">
+            <div className="text-white font-extrabold text-lg">03.</div>
+            <div>
+              <h3 className="text-xl font-semibold">A Showcase of My Projects</h3>
+              <p className="mt-3 text-sm text-gray-400 max-w-xl">In this portfolio, you'll find a curated selection of projects that highlight my skills in [Main Areas], e.g., responsive web design</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="flex justify-center ">
+      <div className=" p-5">
+        
        
+       
+          <img src="https://inversweb.com/product/html/reeni/assets/images/services/latest-services-user-image.png" alt="person" className="  transform translate-y-6" />
+    
+      </div>
+    </div>
+  </div>
+</div>
+                </div>
 
-
-
-
-
-        {/* <header class="shadow-md">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex items-center justify-between h-20">
-
-<div class="flex items-center gap-4">
-<a href="#" class="flex items-center gap-3">
-<div class="w-9 h-9 rounded-full bg-pink-500 flex items-center justify-center text-black font-bold">R</div>
-<span class="font-semibold text-xl tracking-wide hidden sm:inline">Reeni</span>
-</a>
 </div>
 
-<nav class="hidden lg:flex lg:space-x-8">
-<a href="#" class="py-2 px-3 hover:text-pink-400">Home</a>
-<a href="#" class="py-2 px-3 hover:text-pink-400">About</a>
-<a href="#" class="py-2 px-3 hover:text-pink-400">Services</a>
-<a href="#" class="py-2 px-3 hover:text-pink-400">Blog</a>
-<a href="#" class="py-2 px-3 hover:text-pink-400">Project</a>
-<a href="#" class="py-2 px-3 hover:text-pink-400">Contact</a>
-</nav>
 
-<div class="flex items-center gap-3">
+{/* Education section */}
 
-<div class="hidden md:flex items-center gap-3">
-<a href="#" class="p-3 rounded-full hover:bg-pink-600/10 transition">
-<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="4"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8"></path></svg>
-</a>
+<div className='bg-black '>
+    <div className='m-auto max-w-[1250px] p-5 '>
+        <div className="max-w-6xl mx-auto px-6 py-20 text-white">
+  <div className="text-center mb-12">
+    <div className="text-red-900 tracking-widest text-sm">EDUCATION & EXPERIENCE</div>
+    <h2 className="mt-4 text-4xl  font-extrabold">Empowering Creativity through</h2>
+    <p className="mt-4 text-sm text-gray-400 max-w-2xl mx-auto">Business consulting consultants provide expert advice and guida businesses to help them improve their performance, efficiency, and organizational</p>
+  </div>
 
-<a href="#" class="p-3 rounded-full hover:bg-pink-600/10 transition">
-<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.6 4.08 5.5 2.98 5.5S1 4.6 1 3.5 1.9 1.5 3 1.5 4.98 2.4 4.98 3.5zM.5 8.5H5.5V23H.5zM8.5 8.5h4.7v2h.1c.7-1.3 2.5-2.7 5.1-2.7 5.5 0 6.5 3.6 6.5 8.2V23h-5V15.3c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.1V23H8.5z"/></svg>
-</a>
+  <div className="mb-8">
+    <div className="flex items-center gap-4">
+      <h3 className="text-2xl font-bold">Education</h3>
+     <img src="https://inversweb.com/product/html/reeni/assets/images/custom-line/custom-line.png" alt=""  />
+    </div>
+  </div>
 
-<a href="#" class="p-3 rounded-full hover:bg-pink-600/10 transition">
-<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 3s-1 .5-2 1c-1 .5-2 .5-3 1 0 0 1 0 1 1-1 0-1 .5-2 1-2 1-4 1-6 2 0 0 0 1 1 1-3 0-6 0-8 2-2 2-3 4-3 8 0 3 1 6 3 7 2 1 5 2 8 2 7 0 12-4 14-9 1-3 1-6 1-10 0-1 .5-2 1-3z"/></svg>
-</a>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="rounded-xl bg-gray-900/60 p-8">
+      <div className="text-sm text-red-900 font-medium mb-3">Trainer Marketing</div>
+      <div className="font-semibold text-white mb-4">2005-2009</div>
+      <p className="text-sm text-gray-400">A personal portfolio is a curated collection of an individual's professional work, showcasing their skills, experience A personal portfolio.</p>
+    </div>
 
-<a href="#" class="p-3 rounded-full hover:bg-pink-600/10 transition">
-<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12A10 10 0 1 0 2 12a10 10 0 0 0 20 0zM14 12h-2v8h-3v-8H7V9h2V7.5C9 5 10.3 4 12.9 4H16v3h-1.2c-1 0-1 .4-1 1.2V9H16l-1 3z"/></svg>
-</a>
+    <div className="rounded-xl bg-gray-900/60 p-8">
+      <div className="text-sm text-red-900 font-medium mb-3">Assistant Director</div>
+      <div className="font-semibold text-white mb-4">2010-2014</div>
+      <p className="text-sm text-gray-400">Each project here showcases my commitment to excellence and adaptability, tailored to meet each client's unique needs.</p>
+    </div>
 
-<a href="#" class="p-3 rounded-full hover:bg-pink-600/10 transition">
-<svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7s-.2-1.7-.9-2.4C20.8 3.1 19.2 3 18.3 3H6.7C5.8 3 4.2 3.1 2.9 4.6 2.2 5.3 2 7 2 7S1.8 9 1.8 11v2c0 2 .2 4 2 4s2 1.6 4 1.6h11.6c1.1 0 3-.1 3.8-1.6.7-1.3.9-3 .9-3V11c0-2-.2-4-2-4zM9.8 15.5V8.5l6 3.5-6 3.5z"/></svg>
-</a>
+    <div className="rounded-xl bg-gray-900/60 p-8">
+      <div className="text-sm text-red-900 font-medium mb-3">Design Assistant</div>
+      <div className="font-semibold text-white mb-4">2008-2012</div>
+      <p className="text-sm text-gray-400">I've had the privilege of working with various clients, from startups to established companies, helping bring their visions to life.</p>
+    </div>
+
+    <div className="rounded-xl bg-gray-900/60 p-8">
+      <div className="text-sm text-red-900 font-medium mb-3">Design Assistant</div>
+      <div className="font-semibold text-white mb-4">2008-2012</div>
+      <p className="text-sm text-gray-400">Each project here showcases my commitment to excellence and adaptability, tailored to meet each client's unique needs a personal.</p>
+    </div>
+  </div>
 </div>
 
-<div class="hidden lg:flex">
-<button class="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center shadow-md">
-<svg class="w-5 h-5" viewBox="0 0 24 24" stroke="black" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-</button>
-</div>
-
-<div class="md:hidden">
-<button id="mobileMenuBtn" class="w-10 h-10 rounded-full bg-pink-500 flex items-center justify-center shadow-md">
-<svg class="w-5 h-5" viewBox="0 0 24 24" stroke="black" stroke-width="1.5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-</button>
-</div>
-
-</div>
-</div>
-</div>
-</header>
-
-<div id="mobileSidebar" class="fixed inset-0 z-40 hidden">
-<div id="overlay" class="absolute inset-0 bg-black/60"></div>
-<aside class="absolute left-0 top-0 bottom-0 w-72 bg-gray-900/95 p-6">
-<div class="flex items-center justify-between mb-6">
-<div class="flex items-center gap-3">
-<div class="w-9 h-9 rounded-full bg-pink-500 flex items-center justify-center text-black font-bold">R</div>
-<span class="font-semibold text-lg">Reeni</span>
-</div>
-<button id="closeBtn" class="p-2 rounded-md hover:bg-white/5">
-<svg class="w-5 h-5" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path d="M6 18L18 6M6 6l12 12"/></svg>
-</button>
-</div>
-
-<nav class="space-y-4">
-<a href="#" class="block py-2 px-3 rounded hover:bg-white/5">Home</a>
-<a href="#" class="block py-2 px-3 rounded hover:bg-white/5">About</a>
-<a href="#" class="block py-2 px-3 rounded hover:bg-white/5">Services</a>
-<a href="#" class="block py-2 px-3 rounded hover:bg-white/5">Blog</a>
-<a href="#" class="block py-2 px-3 rounded hover:bg-white/5">Project</a>
-<a href="#" class="block py-2 px-3 rounded hover:bg-white/5">Contact</a>
-</nav>
-</aside>
-</div>
-
-<script>
-const btn=document.getElementById("mobileMenuBtn")
-const bar=document.getElementById("mobileSidebar")
-const close=document.getElementById("closeBtn")
-const overlay=document.getElementById("overlay")
-btn.onclick=()={'>'}bar.classList.remove("hidden")
-close.onclick=()={'>'}bar.classList.add("hidden")
-overlay.onclick=()={'>'}bar.classList.add("hidden")
-</script> */}
+{/* experiences section */}
 
 
- {/* <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <div className=" mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    
+    {/* Left Content */}
+    <div>
+       <div className="mb-8">
+    <div className="flex items-center gap-4">
+      <h3 className="text-2xl font-bold text-white">Experiences</h3>
+     <img src="https://inversweb.com/product/html/reeni/assets/images/custom-line/custom-line.png" alt=""  />
+    </div>
+  </div>
+
+      {/* Experience 1 */}
+      <div className="mb-10 text-white">
+        <p className="text-red-900  text-sm font-semibold">experience</p>
+        <h3 className="text-xl font-bold mb-1">Soft Tech (2 Years)</h3>
+        <p className="text-sm mb-3 text-gray-200">UI/UX Designer</p>
+        <p className="text-gray-400 text-sm leading-relaxed">
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+          desi dolore eu fugiat nulla pariatur Duis aute irure.
+        </p>
+      </div>
+
+      {/* Experience 2 */}
+      <div className='text-white'>
+        <p className="text-red-900 text-sm font-semibold">experience</p>
+        <h3 className="text-xl font-bold mb-1">ModernTech (3 Years)</h3>
+        <p className="text-sm mb-3 text-gray-200">App Developer</p>
+        <p className="text-gray-400 text-sm leading-relaxed">
+          In this portfolio, you'll find a curated selection of projects that 
+          highlight my skills in [Main Areas, e.g., responsive web design.
+        </p>
+      </div>
+    </div>
+
+    {/* Right Image */}
+    <div className="flex justify-center">
+      <img 
+        src="	https://inversweb.com/product/html/reeni/assets/images/experiences/expert-img.jpg"
+        alt="developer working"
+        className="rounded-2xl w-full object-cover"
+      />
+    </div>
+
+  </div>
+
+  {/* Brand Logos */}
+  <div className="container mx-auto px-6 py-6 mt-20">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-0 text-gray-400">
+      <div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-2"><span><FaGgCircle className='text-3xl  font-semibold'/></span>Linear</div>
+      <div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-2"><span><SiFramer className='text-3xl  font-semibold'/></span>Framer</div>
+      <div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-2"><span><SiNotion className='text-3xl  font-semibold'/></span>Notion</div>
+      <div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-2"><span><FaSlack className='text-3xl  font-semibold'/></span>Slack</div>
+      <div className="border border-gray-700 p-10 flex items-center justify-center text-2xl font-semibold gap-2"><span><FaMedium className='text-3xl  font-semibold'/></span>Medium</div>
+      <div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-0"><span><FaUpwork className='text-4xl  font-bold items-center pt-2'/></span>work</div>
+      <div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold "><span><SiAmazon className='text-3xl  font-semibold pt-2'/></span>mazon</div>
+      <div className="border border-gray-700  p-10 flex items-center justify-center text-lg font-semibold gap-2"><span><SiAsana className='text-3xl  font-semibold'/></span>Asana</div>
+    </div>
+  </div>
+    </div>
+</div>
+
+
+<div> 
+    
+</div>
+
+{/* <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   
   <script>
     var typed = new Typed(".auto-type", {
