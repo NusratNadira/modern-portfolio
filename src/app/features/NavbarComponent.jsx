@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 // import { motion } from "motion/react"
 import { motion } from "framer-motion";
 import { FaArrowRight, FaFacebookF, FaHome, FaInstagram, FaLinkedinIn, FaTwitter, FaPencilRuler, FaBezierCurve, FaSlack, FaAngleRight, FaCalendarPlus, FaRegCalendar, FaPenNib, FaEnvelope } from "react-icons/fa";
@@ -24,7 +24,43 @@ const skillBars2 = [
   { name: "Wordpress", level: "70%" },
 ];
 
+
+function useCount(to, duration = 1500) {
+  const [count, setCount] = useState(0);
+  const rafRef = useRef(null);
+  useEffect(() => {
+    const start = performance.now();
+    const from = 0;
+    const diff = to - from;
+    function step(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3); // easeOut
+      setCount(Math.floor(from + diff * eased));
+      if (t < 1) rafRef.current = requestAnimationFrame(step);
+    }
+    rafRef.current = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [to, duration]);
+  return count;
+}
+
+
+// const years = useCount(25, 1200);
+// const projects = useCount(20000, 1500);
+// const products = useCount(10000, 1500);
+// const reviews = useCount(200, 1300);
+// const clients = useCount(1000, 1300);
+
+
 const NavbarComponent = () => {
+
+
+const years = useCount(25, 100);
+const projects = useCount(20000, 1500);
+const products = useCount(10000, 1500);
+const reviews = useCount(200, 1300);
+const clients = useCount(1000, 1300);
+
     return (
         <>
             {/* Header */}
@@ -151,34 +187,68 @@ const NavbarComponent = () => {
                     </div>
 
 
-                    <div className='flex  items-center justify-around gap-2  mt-5'>
-                        <div className='order-1 w-[580px] h-auto rounded-xl bg-linear-65 from-red-950 to-red-800 flex flex-col p-15'>
-                            <div className='flex  justify-between'>
-                                <span className='text-4xl text-red-600 font-bold'> 25</span>
-                                <p className='text-2xl font-bold'>Years of <br /> Experience</p>
-                            </div>
+                     {/* count section */}
+   Only the changed lines are shown — keep your existing classes and content.
+*/
 
-                            <div className='text-white text-sm pt-4'>Business consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency</div>
-                        </div>
-                        <div className='w-[50%] order-2  flex  flex-wrap items-center justify-evenly gap-4'>
-                            <div className='bg-gray-900 rounded-xl w-auto h-auto items-center flex flex-col p-8'>
-                                <span className='text-white font-bold text-4xl'>0k+</span>
-                                <p className='text-gray-500 text-lg'>Our Project Complete</p>
-                            </div>
-                            <div className='bg-gray-900 rounded-xl w-auto h-auto items-center flex flex-col p-8'>
-                                <span className='text-white font-bold text-4xl'>0k+</span>
-                                <p className='text-gray-500 text-lg'>Our Project Complete</p>
-                            </div>
-                            <div className='bg-gray-900 rounded-xl w-auto h-auto items-center flex flex-col p-8'>
-                                <span className='text-white font-bold text-4xl'>0k+</span>
-                                <p className='text-gray-500 text-lg'>Our Project Complete</p>
-                            </div>
-                            <div className='bg-gray-900 rounded-xl w-auto h-auto items-center flex flex-col p-8'>
-                                <span className='text-white font-bold text-4xl'>0k+</span>
-                                <p className='text-gray-500 text-lg'>Our Project Complete</p>
-                            </div>
-                        </div>
-                    </div>
+<motion.div
+  className="flex items-center justify-around gap-2 mt-5"
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.25 }}
+  variants={{
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { when: "beforeChildren", staggerChildren: 0.18 } },
+  }}
+>
+  <motion.div
+    className="order-1 w-[580px] h-auto rounded-xl bg-linear-65 from-red-950 to-red-800 flex flex-col p-15"
+    variants={{ hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70, damping: 12 } } }}
+  >
+    <div className="flex justify-between ">
+      <span className="text-4xl text-red-600 font-bold">{years}</span>
+      <p className="text-2xl font-bold">Years of <br/> Experience</p>
+    </div>
+
+    <div className="text-white text-sm pt-4">
+      Business consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency
+    </div>
+  </motion.div>
+
+  <motion.div
+    className="w-[50%] order-2 flex flex-wrap items-center justify-evenly gap-4"
+    variants={{ hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0 } }}
+  >
+    <motion.div className="bg-gray-900 rounded-xl w-[230px] h-auto items-center flex flex-col p-8"
+      variants={{ hidden: { opacity: 0, y: 48 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+    >
+      <span className="text-white font-bold text-4xl">{Math.floor(projects).toLocaleString()}</span>
+      <p className="text-gray-500 text-lg">Our Project</p>
+    </motion.div>
+
+    <motion.div className="bg-gray-900 rounded-xl w-[230px] h-auto items-center flex flex-col p-8"
+      variants={{ hidden: { opacity: 0, y: 48 }, show: { opacity: 1, y: 0, transition: { duration: 0.7, delay: 0.04 } } }}
+    >
+      <span className="text-white font-bold text-4xl">{Math.floor(products).toLocaleString()}</span>
+      <p className="text-gray-500 text-lg">Our  Products</p>
+    </motion.div>
+
+    <motion.div className="bg-gray-900 rounded-xl w-[230px] h-auto items-center flex flex-col p-8"
+      variants={{ hidden: { opacity: 0, y: 48 }, show: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.08 } } }}
+    >
+      <span className="text-white font-bold text-4xl">{reviews}</span>
+      <p className="text-gray-500 text-lg">Clients Reviews</p>
+    </motion.div>
+
+    <motion.div className="bg-gray-900 rounded-xl w-[230px] h-auto items-center flex flex-col p-8"
+      variants={{ hidden: { opacity: 0, y: 48 }, show: { opacity: 1, y: 0, transition: { duration: 0.9, delay: 0.12 } } }}
+    >
+      <span className="text-white font-bold text-4xl">{clients}</span>
+      <p className="text-gray-500 text-lg">Our Satisfied Clients</p>
+    </motion.div>
+  </motion.div>
+</motion.div>
+
 
                     {/* parcentage section */}
 
@@ -253,68 +323,113 @@ const NavbarComponent = () => {
 
 
             {/* latest Service */}
+<motion.div
+  className="bg-black h-screen"
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={{
+    hidden: { opacity: 0, y: 40 },
+    show: { opacity: 1, y: 0, transition: { staggerChildren: 0.25 } }
+  }}
+>
+  <motion.div
+    className="m-auto max-w-[1250px] p-5 mt-20"
+    variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }}
+  >
+    <motion.div
+      className="max-w-6xl mx-auto px-6 py-24 text-white mt-15"
+      variants={{ hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0 } }}
+    >
+      <motion.div
+        className="text-center mb-12"
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+        }}
+      >
+        <div className="text-red-900 tracking-widest text-sm">LATEST SERVICE</div>
+        <h2 className="mt-4 text-4xl font-extrabold">Inspiring The World One Project</h2>
+        <p className="mt-4 text-sm text-gray-400 max-w-2xl mx-auto">
+          Business consulting consultants provide expert advice and guidance to help them improve their performance, efficiency, and organizational.
+        </p>
+      </motion.div>
 
-            <div className='bg-black h-screen '>
-                <div className='m-auto max-w-[1250px]  p-5 mt-20'>
-
-                    <div className="max-w-6xl mx-auto px-6 py-24 text-white mt-15">
-                        <div className="text-center mb-12">
-                            <div className="text-red-900 tracking-widest text-sm">LATEST SERVICE</div>
-                            <h2 className="mt-4 text-4xl  font-extrabold">Inspiring The World One Project</h2>
-                            <p className="mt-4 text-sm text-gray-400 max-w-2xl mx-auto">Business consulting consultants provide expert advice and guidance to help them improve their performance, efficiency, and organizational.</p>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                            <div>
-                                <div className="space-y-8">
-                                    <div className="rounded-xl bg-gray-900/60 p-6 shadow-lg">
-                                        <div className="flex items-start gap-6">
-                                            <div className="text-white font-extrabold text-lg">01.</div>
-                                            <div>
-                                                <h3 className="text-xl font-semibold">A Portfolio of Creativity</h3>
-                                                <p className="mt-3 text-sm text-gray-400 max-w-xl">Business consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="rounded-xl bg-gray-900/60 p-6 shadow-lg">
-                                        <div className="flex items-start gap-6">
-                                            <div className="text-white font-extrabold text-lg">02.</div>
-                                            <div>
-                                                <h3 className="text-xl font-semibold">My Portfolio of Innovation</h3>
-                                                <p className="mt-3 text-sm text-gray-400 max-w-xl">My work is driven by the belief that thoughtful design and strategic planning can empower brands, transform businesses</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="rounded-xl bg-gray-900/60 p-6 shadow-lg">
-                                        <div className="flex items-start gap-6">
-                                            <div className="text-white font-extrabold text-lg">03.</div>
-                                            <div>
-                                                <h3 className="text-xl font-semibold">A Showcase of My Projects</h3>
-                                                <p className="mt-3 text-sm text-gray-400 max-w-xl">In this portfolio, you'll find a curated selection of projects that highlight my skills in [Main Areas], e.g., responsive web design</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="flex justify-center ">
-                                <div className=" p-5">
-
-
-
-                                    <img src="https://inversweb.com/product/html/reeni/assets/images/services/latest-services-user-image.png" alt="person" className="  transform translate-y-6" />
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <motion.div
+          className="space-y-8"
+          variants={{ hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0 } }}
+        >
+          <motion.div
+            className="rounded-xl bg-gray-900/60 p-6 shadow-lg"
+            variants={{ hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+          >
+            <div className="flex items-start gap-6">
+              <div className="text-white font-extrabold text-lg">01.</div>
+              <div>
+                <h3 className="text-xl font-semibold">A Portfolio of Creativity</h3>
+                <p className="mt-3 text-sm text-gray-400 max-w-xl">
+                  Business consulting consultants provide expert advice and guida the a businesses to help theme their performance efficiency
+                </p>
+              </div>
             </div>
+          </motion.div>
+
+          <motion.div
+            className="rounded-xl bg-gray-900/60 p-6 shadow-lg"
+            variants={{ hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+          >
+            <div className="flex items-start gap-6">
+              <div className="text-white font-extrabold text-lg">02.</div>
+              <div>
+                <h3 className="text-xl font-semibold">My Portfolio of Innovation</h3>
+                <p className="mt-3 text-sm text-gray-400 max-w-xl">
+                  My work is driven by the belief that thoughtful design and strategic planning can empower brands, transform businesses
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="rounded-xl bg-gray-900/60 p-6 shadow-lg"
+            variants={{ hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
+          >
+            <div className="flex items-start gap-6">
+              <div className="text-white font-extrabold text-lg">03.</div>
+              <div>
+                <h3 className="text-xl font-semibold">A Showcase of My Projects</h3>
+                <p className="mt-3 text-sm text-gray-400 max-w-xl">
+                  In this portfolio, you'll find a curated selection of projects that highlight my skills in [Main Areas], e.g., responsive web design
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          className="flex justify-center"
+          variants={{ hidden: { opacity: 0, y: 40 }, show: { opacity: 1, y: 0, transition: { duration: 0.8 } } }}
+        >
+          <div className="p-5">
+            <img
+              src="https://inversweb.com/product/html/reeni/assets/images/services/latest-services-user-image.png"
+              alt="person"
+              className="transform translate-y-6"
+            />
+          </div>
+        </motion.div>
+      </div>
+    </motion.div>
+  </motion.div>
+</motion.div>
+
+
 
 
             {/* Education section */}
 
 <motion.div
-  className="bg-black"
+  className="bg-black mt-36"
   initial="hidden"
   whileInView="show"
   viewport={{ once: true, amount: 0.18 }}
@@ -351,13 +466,13 @@ const NavbarComponent = () => {
           <p className="text-sm text-gray-400">Each project here showcases my commitment to excellence and adaptability, tailored to meet each client's unique needs.</p>
         </motion.div>
 
-        <motion.div className="rounded-xl bg-gray-900/60 p-8" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}>
+        <motion.div className="rounded-xl bg-gray-900/60 p-8" variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}>
           <div className="text-sm text-red-700 font-medium mb-3">Design Assistant</div>
           <div className="font-semibold text-white mb-4">2008-2012</div>
           <p className="text-sm text-gray-400">I've had the privilege of working with various clients, from startups to established companies, helping bring their visions to life.</p>
         </motion.div>
 
-        <motion.div className="rounded-xl bg-gray-900/60 p-8" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}>
+        <motion.div className="rounded-xl bg-gray-900/60 p-8" variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}>
           <div className="text-sm text-red-700 font-medium mb-3">Design Assistant</div>
           <div className="font-semibold text-white mb-4">2008-2012</div>
           <p className="text-sm text-gray-400">Each project here showcases my commitment to excellence and adaptability, tailored to meet each client's unique needs a personal.</p>
