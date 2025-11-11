@@ -1,11 +1,28 @@
 "use client";
 import React, { useState } from 'react';
-
+// import { motion } from "motion/react"
+import { motion } from "framer-motion";
 import { FaArrowRight, FaFacebookF, FaHome, FaInstagram, FaLinkedinIn, FaTwitter, FaPencilRuler, FaBezierCurve, FaSlack, FaAngleRight, FaCalendarPlus, FaRegCalendar, FaPenNib, FaEnvelope } from "react-icons/fa";
 import { RxCaretDown, RxCaretRight } from "react-icons/rx";
 import { MdArrowOutward,MdCall,MdPerson } from "react-icons/md";
 import { FaBarsStaggered, FaGgCircle, FaRegEnvelope, FaRegLightbulb, FaUpwork, FaMedium, FaBuildingColumns, FaLocationDot } from "react-icons/fa6";
 import { SiAmazon,  SiAsana, SiFramer, SiNotion } from "react-icons/si";
+
+
+const skillBars = [
+  { name: "PHOTOSHOT", level: "100%" },
+  { name: "FIGMA", level: "95%" },
+  { name: "ADOBE XD", level: "60%" },
+  { name: "ADOBE ILLUSTRATOR", level: "70%" },
+];
+
+
+const skillBars2 = [
+  { name: "HTML", level: "100%" },
+  { name: "CSS", level: "95%" },
+  { name: "Javascript", level: "60%" },
+  { name: "Wordpress", level: "70%" },
+];
 
 const NavbarComponent = () => {
     return (
@@ -176,47 +193,26 @@ const NavbarComponent = () => {
                                 </div>
                             </div>
 
-                            <div className="space-y-6">
-                                <div>
-                                    <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
-                                        <span>PHOTOSHOT</span>
-                                        <span>100%</span>
-                                    </div>
-                                    <div className="w-full rounded-full h-2 bg-gray-900">
-                                        <div className="rounded-full h-2 bg-red-700 w-full" ></div>
-                                    </div>
-                                </div>
+                             <div className="space-y-6">
+      {skillBars.map((skill, index) => (
+        <div key={index}>
+          <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
+            <span>{skill.name}</span>
+            <span>{skill.level}</span>
+          </div>
 
-                                <div>
-                                    <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
-                                        <span>FIGMA</span>
-                                        <span>95%</span>
-                                    </div>
-                                    <div className="w-full rounded-full h-2 bg-gray-900">
-                                        <div className="rounded-full h-2 bg-red-700  w-[95%]" ></div>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
-                                        <span>ADOBE XD</span>
-                                        <span>60%</span>
-                                    </div>
-                                    <div className="w-full rounded-full h-2 bg-gray-900">
-                                        <div className="rounded-full h-2 bg-red-700 w-[60%]" ></div>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
-                                        <span>ADOBE ILLUSTRATOR</span>
-                                        <span>70%</span>
-                                    </div>
-                                    <div className="w-full rounded-full h-2 bg-gray-900">
-                                        <div className="rounded-full h-2 bg-red-700 w-[70%]" ></div>
-                                    </div>
-                                </div>
-                            </div>
+          <div className="w-full rounded-full h-2 bg-gray-900 overflow-hidden">
+            <motion.div
+              className="rounded-full h-2 bg-red-700"
+              initial={{ width: 0 }}
+              whileInView={{ width: skill.level }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 1.4, ease: "easeOut", delay: index * 0.2 }}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
                         </div>
 
                         <div className="col-span-12 md:col-span-6">
@@ -228,46 +224,25 @@ const NavbarComponent = () => {
                             </div>
 
                             <div className="space-y-6">
-                                <div>
-                                    <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
-                                        <span>HTML</span>
-                                        <span>100%</span>
-                                    </div>
-                                    <div className="w-full rounded-full h-2 bg-gray-900">
-                                        <div className="rounded-full h-2 bg-red-700 w-full" ></div>
-                                    </div>
-                                </div>
+      {skillBars2.map((skill, index) => (
+        <div key={index}>
+          <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
+            <span>{skill.name}</span>
+            <span>{skill.level}</span>
+          </div>
 
-                                <div>
-                                    <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
-                                        <span>CSS</span>
-                                        <span>95%</span>
-                                    </div>
-                                    <div className="w-full rounded-full h-2 bg-gray-900">
-                                        <div className="rounded-full h-2 bg-red-700 w-[95%]" ></div>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
-                                        <span>Javascript</span>
-                                        <span>60%</span>
-                                    </div>
-                                    <div className="w-full rounded-full h-2 bg-gray-900">
-                                        <div className="rounded-full h-2 bg-red-700 w-[60%]" ></div>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <div className="flex justify-between items-center mb-2 text-xs text-white font-medium">
-                                        <span>Wordpress</span>
-                                        <span>70%</span>
-                                    </div>
-                                    <div className="w-full rounded-full h-2 bg-gray-900">
-                                        <div className="rounded-full h-2 bg-red-700 w-[70%]" ></div>
-                                    </div>
-                                </div>
-                            </div>
+          <div className="w-full rounded-full h-2 bg-gray-900 overflow-hidden">
+            <motion.div
+              className="rounded-full h-2 bg-red-700"
+              initial={{ width: 0 }}
+              whileInView={{ width: skill.level }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 1.4, ease: "easeOut", delay: index * 0.2 }}
+            />
+          </div>
+        </div>
+      ))}
+    </div>
                         </div>
 
 
@@ -280,7 +255,7 @@ const NavbarComponent = () => {
             {/* latest Service */}
 
             <div className='bg-black h-screen '>
-                <div className='m-auto max-w-[1250px]  p-5 '>
+                <div className='m-auto max-w-[1250px]  p-5 mt-20'>
 
                     <div className="max-w-6xl mx-auto px-6 py-24 text-white mt-15">
                         <div className="text-center mb-12">
@@ -338,112 +313,113 @@ const NavbarComponent = () => {
 
             {/* Education section */}
 
-            <div className='bg-black '>
-                <div className='m-auto max-w-[1250px] p-5 '>
-                    <div className="max-w-6xl mx-auto px-6 py-20 text-white">
-                        <div className="text-center mb-12">
-                            <div className="text-red-700 tracking-widest text-sm">EDUCATION & EXPERIENCE</div>
-                            <h2 className="mt-4 text-4xl  font-extrabold">Empowering Creativity through</h2>
-                            <p className="mt-4 text-sm text-gray-400 max-w-2xl mx-auto">Business consulting consultants provide expert advice and guida businesses to help them improve their performance, efficiency, and organizational</p>
-                        </div>
+<motion.div
+  className="bg-black"
+  initial="hidden"
+  whileInView="show"
+  viewport={{ once: true, amount: 0.18 }}
+  variants={{
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { when: "beforeChildren", staggerChildren: 0.12, delayChildren: 0.12 } }
+  }}
+>
+  <motion.div className="m-auto  max-w-[1250px] p-5" variants={{ hidden: { opacity: 0, y: 12 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}>
+    <motion.div className="max-w-6xl mx-auto px-6 py-20 text-white" variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}>
+      <motion.div className="text-center mb-12" variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}>
+        <motion.div className="text-red-700 tracking-widest text-sm">EDUCATION & EXPERIENCE</motion.div>
+        <motion.h2 className="mt-4 text-4xl  font-extrabold">Empowering Creativity through</motion.h2>
+        <motion.p className="mt-4 text-sm text-gray-400 max-w-2xl mx-auto">Business consulting consultants provide expert advice and guida businesses to help them improve their performance, efficiency, and organizational</motion.p>
+      </motion.div>
 
-                        <div className="mb-8">
-                            <div className="flex items-center gap-4">
-                                <h3 className="text-2xl font-bold">Education</h3>
-                                <img src="https://inversweb.com/product/html/reeni/assets/images/custom-line/custom-line.png" alt="" />
-                            </div>
-                        </div>
+      <motion.div className="mb-8" variants={{ hidden: { opacity: 0, y: 14 }, show: { opacity: 1, y: 0 } }}>
+        <div className="flex items-center gap-4">
+          <h3 className="text-2xl font-bold">Education</h3>
+          <img src="https://inversweb.com/product/html/reeni/assets/images/custom-line/custom-line.png" alt="" />
+        </div>
+      </motion.div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            <div className="rounded-xl bg-gray-900/60 p-8">
-                                <div className="text-sm text-red-700 font-medium mb-3">Trainer Marketing</div>
-                                <div className="font-semibold text-white mb-4">2005-2009</div>
-                                <p className="text-sm text-gray-400">A personal portfolio is a curated collection of an individual's professional work, showcasing their skills, experience A personal portfolio.</p>
-                            </div>
+      <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-8" variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}>
+        <motion.div className="rounded-xl bg-gray-900/60 p-8" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}>
+          <div className="text-sm text-red-700 font-medium mb-3">Trainer Marketing</div>
+          <div className="font-semibold text-white mb-4">2005-2009</div>
+          <p className="text-sm text-gray-400">A personal portfolio is a curated collection of an individual's professional work, showcasing their skills, experience A personal portfolio.</p>
+        </motion.div>
 
-                            <div className="rounded-xl bg-gray-900/60 p-8">
-                                <div className="text-sm text-red-700 font-medium mb-3">Assistant Director</div>
-                                <div className="font-semibold text-white mb-4">2010-2014</div>
-                                <p className="text-sm text-gray-400">Each project here showcases my commitment to excellence and adaptability, tailored to meet each client's unique needs.</p>
-                            </div>
+        <motion.div className="rounded-xl bg-gray-900/60 p-8" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}>
+          <div className="text-sm text-red-700 font-medium mb-3">Assistant Director</div>
+          <div className="font-semibold text-white mb-4">2010-2014</div>
+          <p className="text-sm text-gray-400">Each project here showcases my commitment to excellence and adaptability, tailored to meet each client's unique needs.</p>
+        </motion.div>
 
-                            <div className="rounded-xl bg-gray-900/60 p-8">
-                                <div className="text-sm text-red-700 font-medium mb-3">Design Assistant</div>
-                                <div className="font-semibold text-white mb-4">2008-2012</div>
-                                <p className="text-sm text-gray-400">I've had the privilege of working with various clients, from startups to established companies, helping bring their visions to life.</p>
-                            </div>
+        <motion.div className="rounded-xl bg-gray-900/60 p-8" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}>
+          <div className="text-sm text-red-700 font-medium mb-3">Design Assistant</div>
+          <div className="font-semibold text-white mb-4">2008-2012</div>
+          <p className="text-sm text-gray-400">I've had the privilege of working with various clients, from startups to established companies, helping bring their visions to life.</p>
+        </motion.div>
 
-                            <div className="rounded-xl bg-gray-900/60 p-8">
-                                <div className="text-sm text-red-700 font-medium mb-3">Design Assistant</div>
-                                <div className="font-semibold text-white mb-4">2008-2012</div>
-                                <p className="text-sm text-gray-400">Each project here showcases my commitment to excellence and adaptability, tailored to meet each client's unique needs a personal.</p>
-                            </div>
-                        </div>
-                    </div>
+        <motion.div className="rounded-xl bg-gray-900/60 p-8" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}>
+          <div className="text-sm text-red-700 font-medium mb-3">Design Assistant</div>
+          <div className="font-semibold text-white mb-4">2008-2012</div>
+          <p className="text-sm text-gray-400">Each project here showcases my commitment to excellence and adaptability, tailored to meet each client's unique needs a personal.</p>
+        </motion.div>
+      </motion.div>
+    </motion.div>
 
-                    {/* experiences section */}
+    <motion.div className="mx-auto px-6 grid md:grid-cols-2 gap-12 items-center" variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { staggerChildren: 0.08 } } }}>
+      <motion.div variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}>
+        <div className="mb-8">
+          <div className="flex items-center gap-4">
+            <h3 className="text-2xl font-bold text-white">Experiences</h3>
+            <img src="https://inversweb.com/product/html/reeni/assets/images/custom-line/custom-line.png" alt="" />
+          </div>
+        </div>
+
+        <motion.div className="mb-10 text-white" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}>
+          <p className="text-red-700  text-sm font-semibold">experience</p>
+          <h3 className="text-xl font-bold mb-1">Soft Tech (2 Years)</h3>
+          <p className="text-sm mb-3 text-gray-200">UI/UX Designer</p>
+          <p className="text-gray-400 text-sm leading-relaxed">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+            desi dolore eu fugiat nulla pariatur Duis aute irure.
+          </p>
+        </motion.div>
+
+        <motion.div className="text-white" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}>
+          <p className="text-red-700 text-sm font-semibold">experience</p>
+          <h3 className="text-xl font-bold mb-1">ModernTech (3 Years)</h3>
+          <p className="text-sm mb-3 text-gray-200">App Developer</p>
+          <p className="text-gray-400 text-sm leading-relaxed">
+            In this portfolio, you'll find a curated selection of projects that
+            highlight my skills in [Main Areas, e.g., responsive web design.
+          </p>
+        </motion.div>
+      </motion.div>
+
+      <motion.div className="flex justify-center" variants={{ hidden: { opacity: 0, y: 18, scale: 0.98 }, show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.6 } } }}>
+        <img
+          src="https://inversweb.com/product/html/reeni/assets/images/experiences/expert-img.jpg"
+          alt="developer working"
+          className="rounded-2xl w-full object-cover"
+        />
+      </motion.div>
+    </motion.div>
+
+    <motion.div className="container mx-auto px-6 py-6 mt-20" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}>
+      <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-0 text-gray-400" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { staggerChildren: 0.06 } } }}>
+        <motion.div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-2" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}><span><FaGgCircle className='text-3xl  font-semibold' /></span>Linear</motion.div>
+        <motion.div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-2" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}><span><SiFramer className='text-3xl  font-semibold' /></span>Framer</motion.div>
+        <motion.div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-2" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}><span><SiNotion className='text-3xl  font-semibold' /></span>Notion</motion.div>
+        <motion.div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-2" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}><span><FaSlack className='text-3xl  font-semibold' /></span>Slack</motion.div>
+        <motion.div className="border border-gray-700 p-10 flex items-center justify-center text-2xl font-semibold gap-2" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}><span><FaMedium className='text-3xl  font-semibold' /></span>Medium</motion.div>
+        <motion.div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-0" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}><span><FaUpwork className='text-4xl  font-bold items-center pt-2' /></span>work</motion.div>
+        <motion.div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold " variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}><span><SiAmazon className='text-3xl  font-semibold pt-2' /></span>mazon</motion.div>
+        <motion.div className="border border-gray-700  p-10 flex items-center justify-center text-lg font-semibold gap-2" variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0 } }}><span><SiAsana className='text-3xl  font-semibold' /></span>Asana</motion.div>
+      </motion.div>
+    </motion.div>
+  </motion.div>
+</motion.div>
 
 
-                    <div className=" mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-
-                        {/* Left Content */}
-                        <div>
-                            <div className="mb-8">
-                                <div className="flex items-center gap-4">
-                                    <h3 className="text-2xl font-bold text-white">Experiences</h3>
-                                    <img src="https://inversweb.com/product/html/reeni/assets/images/custom-line/custom-line.png" alt="" />
-                                </div>
-                            </div>
-
-                            {/* Experience 1 */}
-                            <div className="mb-10 text-white">
-                                <p className="text-red-700  text-sm font-semibold">experience</p>
-                                <h3 className="text-xl font-bold mb-1">Soft Tech (2 Years)</h3>
-                                <p className="text-sm mb-3 text-gray-200">UI/UX Designer</p>
-                                <p className="text-gray-400 text-sm leading-relaxed">
-                                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-                                    desi dolore eu fugiat nulla pariatur Duis aute irure.
-                                </p>
-                            </div>
-
-                            {/* Experience 2 */}
-                            <div className='text-white'>
-                                <p className="text-red-700 text-sm font-semibold">experience</p>
-                                <h3 className="text-xl font-bold mb-1">ModernTech (3 Years)</h3>
-                                <p className="text-sm mb-3 text-gray-200">App Developer</p>
-                                <p className="text-gray-400 text-sm leading-relaxed">
-                                    In this portfolio, you'll find a curated selection of projects that
-                                    highlight my skills in [Main Areas, e.g., responsive web design.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Right Image */}
-                        <div className="flex justify-center">
-                            <img
-                                src="	https://inversweb.com/product/html/reeni/assets/images/experiences/expert-img.jpg"
-                                alt="developer working"
-                                className="rounded-2xl w-full object-cover"
-                            />
-                        </div>
-
-                    </div>
-
-                    {/* Brand Logos */}
-                    <div className="container mx-auto px-6 py-6 mt-20">
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-0 text-gray-400">
-                            <div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-2"><span><FaGgCircle className='text-3xl  font-semibold' /></span>Linear</div>
-                            <div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-2"><span><SiFramer className='text-3xl  font-semibold' /></span>Framer</div>
-                            <div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-2"><span><SiNotion className='text-3xl  font-semibold' /></span>Notion</div>
-                            <div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-2"><span><FaSlack className='text-3xl  font-semibold' /></span>Slack</div>
-                            <div className="border border-gray-700 p-10 flex items-center justify-center text-2xl font-semibold gap-2"><span><FaMedium className='text-3xl  font-semibold' /></span>Medium</div>
-                            <div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold gap-0"><span><FaUpwork className='text-4xl  font-bold items-center pt-2' /></span>work</div>
-                            <div className="border border-gray-700  p-10 flex items-center justify-center text-2xl font-semibold "><span><SiAmazon className='text-3xl  font-semibold pt-2' /></span>mazon</div>
-                            <div className="border border-gray-700  p-10 flex items-center justify-center text-lg font-semibold gap-2"><span><SiAsana className='text-3xl  font-semibold' /></span>Asana</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
          
  <div className='bg-black '>
@@ -600,36 +576,7 @@ const NavbarComponent = () => {
       </div>
     </div>
 
-    {/* Testimonials */}
-    {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-      
-      <div className="flex items-center gap-6">
-        <div className="flex-1 absolute z-1">
-          <p className="font-bold text-lg leading-snug">
-            Working With Themespark Was An Absolute Pleasure! They Understood My Vision Immediately And Brought It To Life Even Better Than I'd Imagined.
-          </p>
-          <p className="text-sm text-gray-400 mt-4">Cameron Williamson<br /><span className="text-xs text-gray-500">UI/UX Designer</span></p>
-          <div className="mt-6 text-pink-500 text-4xl">“</div>
-        </div>
-        <div className="relative w-auto h-auto overflow-hidden bg-black flex-shrink-0">
-          <img src="https://inversweb.com/product/html/reeni/assets/images/testimonial/bg-image-1png.png" alt="person" className="w-auto h-auto object-cover" />
-        </div>
-      </div>
-
-      
-      <div className="flex items-center gap-6 bg-[url('https://inversweb.com/product/html/reeni/assets/images/testimonial/bg-image-1png.png')] ">
-        <div className="flex-1">
-          <p className="font-bold text-lg leading-snug">
-            ThemesPark Is Incredibly Talented And Detail-Oriented. They Took The Time To Understand My Brand And Created Something Truly Unique.
-          </p>
-          <p className="text-sm text-gray-400 mt-4">Cameron Williamson<br /><span className="text-xs text-gray-500">UI/UX Designer</span></p>
-          <div className="mt-6 text-pink-500 text-4xl">“</div>
-        </div>
-        <div className="w-36 h-36 rounded-full overflow-hidden bg-gray-800 flex-shrink-0">
-          <img src="/person-2.jpg" alt="person" className="w-full h-full object-cover" />
-        </div>
-      </div>
-    </div> */}
+    
 
 
     <div className="bg-[#070707] text-white py-16">
@@ -640,13 +587,12 @@ const NavbarComponent = () => {
       className="mt-5 relative rounded-lg overflow-hidden p-8 min-h-auto bg-black bg-[url('https://inversweb.com/product/html/reeni/assets/images/testimonial/bg-image-1png.png')] bg-no-repeat bg-right bg-size-[auto_100%] "
      
     >
-      <div className="max-w-[50%] ">
-        <h3 className="text-2xl  font-bold leading-tight ">
-          Working With Themespark 
-          Was An Absolute Pleasure! 
-          They Understood My Vision <br />
-          Immediately And Brought It <br />
-          To Life Even Better Than I'd <br />
+      <div className="max-w-[55%]
+      ">
+        <h3 className="text-2xl  font-bold leading-tight  text-justify">
+          Working With Themespark Was An Absolute Pleasure! They Understood My Vision
+          Immediately And Brought It
+          To Life Even Better Than I'd
           Imagined.
         </h3>
 

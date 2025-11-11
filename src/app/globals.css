@@ -10,6 +10,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --default-font-family: "Rajdhani", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -64,5 +65,4 @@ body {
   color: transparent;
   font-weight: 700;
 }
-
 
